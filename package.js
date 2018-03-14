@@ -17,7 +17,7 @@ Package.onUse(function(api) {
   api.use('igoandsee:locations-collection');
   api.use('igoandsee:tasks-collection');
   api.use('igoandsee:tasks-lists-collection');
-  api.mainModule('gembas-individual-module.js');
+  api.mainModule('gembas-individual-module.js', 'client');
 });
 
 Npm.depends({
