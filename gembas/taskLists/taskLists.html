@@ -1,0 +1,41 @@
+<template name="taskLists">
+
+	{{> taskListModal}}
+	<div class="box-scrollTask">
+		<div class="box">
+			<div class="two fields">
+				<div class="field">
+					<p class="titulo"><i class="tasks icon"></i>{{_ "task_list_in"}} {{getSelectedLocationName}}
+					</p>
+				</div>
+
+				<div class="field right">
+					<a href="#">
+						<p class="add"><i class="plus icon"></i> {{_ "add_task_list"}}</p>
+					</a>
+				</div>
+			</div>
+
+			<hr class="linea-azul">
+
+			<div class="row">
+				<div class="ui grid">
+					<div class="three wide column"></div>
+					<div class="nine wide column ">
+						{{_ "name"}}
+					</div>
+					<div class="two wide column">
+						{{_ "delete"}}
+					</div>
+					<div class="two wide column"></div>
+				</div>
+			</div>
+
+			<br>
+
+			{{#each getTaskListsInLocation}}
+				{{> taskListItem}}
+			{{/each}}
+		</div>
+	</div>
+</template>

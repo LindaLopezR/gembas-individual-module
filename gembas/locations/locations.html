@@ -1,0 +1,28 @@
+<template name="locations">
+
+  {{> locationsModal}}
+  <div class="box-scroll">
+    <div class="box">
+      <div class="two fields">
+        <div class="field">
+          <p class="titulo"><i class="marker icon"></i> {{_ "locations"}}</p>
+        </div>
+
+        <div class="field right">
+          <a href="#">
+            <p class="add"><i class="plus icon"></i> {{_ "add_location"}}</p>
+          </a>
+        </div>
+      </div>
+      <hr class="linea-azul">
+      <div class="row">
+
+        {{#each getSelectedLocations}}
+          {{> locationItem}}
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+  
+</template>

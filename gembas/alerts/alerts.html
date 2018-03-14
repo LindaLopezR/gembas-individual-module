@@ -1,0 +1,60 @@
+<template name="alerts">
+	<div class="box">
+		<div class="field">
+			<p class="titulo">
+				<i class="alarm outline icon"></i>
+				{{_ "alerts"}}
+			</p>
+		</div>
+
+		<hr class="linea-azul">
+
+		<p>
+			<i class="mail outline icon"></i>
+			{{_ "types"}}:
+		</p>
+
+		<div class="two fields">
+
+			{{#if showLeftSide}}
+
+				<div class="field grouped fields">
+					<div class="field ui checkbox">
+						<input type="checkbox" id="exc1">
+						<label>{{_ "not_done"}}</label>
+					</div>
+					<div class="field ui checkbox">
+						<input type="checkbox" id="exc2">
+						<label>{{_ "late"}}</label>
+					</div>
+				</div>
+
+				<div class="field mrgRes-2">
+					<div class="field ui checkbox">
+						<input type="checkbox" id="exc3">
+						<label>{{_ "score_under"}}</label>
+					</div>
+					<div class="field ui checkbox">
+						<input name="user-name" placeholder="{{_ 'example'}}: 50" type="text" id="exc4">
+					</div>
+				</div>
+
+			{{else}}
+
+				<div class="field mrgRes-2">
+					<div class="field ui checkbox">
+						<input type="checkbox" id="exc3">
+						<label>{{_ "score_under"}}</label>
+					</div>
+					<div class="field ui checkbox">
+						<input name="user-name" placeholder="{{_ 'example'}}: 50" type="text" id="exc4">
+					</div>
+				</div>
+
+			{{/if}}
+
+		</div>
+
+	</div>
+
+</template>

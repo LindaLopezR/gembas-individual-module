@@ -1,0 +1,35 @@
+<template name="locationItem">
+
+	<div class="location">
+		<div class="ui grid">
+
+			<div class="nine wide column">
+				<p class="titulo mrg-btn1">
+					<i class="street view icon"></i>
+					{{getLocationName _id}}
+				</p>
+				<div class="ui checkbox">
+					<input type="checkbox" checked="checked" class="checkQr" data-id="{{_id}}">
+					<label>{{_ "mandatory_qr"}}</label>
+				</div>
+			</div>
+
+			<div class="seven wide column text-center">
+				<div class="eliminar" data-id="{{_id}}">
+					<i class="trash outline icon"></i>
+				</div>
+				
+				<div class="ui buttons mini mrg-btn">
+					<a class="ui teal button task-location btnLocation" data-id="{{_id}}">
+						{{_ "tasks"}}
+					</a>
+					<a class="ui blue button list-location btnLocation" data-id="{{_id}}">
+						{{_ "lists"}}
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</template>

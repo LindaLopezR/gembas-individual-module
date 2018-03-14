@@ -1,0 +1,27 @@
+<template name="tasksItem">
+	<div class="task">
+		<div class="ui grid">
+			<div class="one wide column"></div>
+			<div class="two wide column eliminar mrg-1">
+				<i class="large edit icon"></i>
+			</div>
+			<div class="seven wide column ">
+				<p class="mrg-7 mrg-btn text-left">
+					{{name}}
+				</p>
+			</div>
+			<div class="three wide column">
+				<div class="ui toggle checkbox" data-id="{{_id}}">
+					<input name="public" type="checkbox" class="criticalCheckbox">
+				</div>
+			</div>
+			<div class="two wide column text-right mrg-1">
+				<a href="#" class="eliminar eliminarBtn">
+					<i class=" trash outline icon"></i>
+				</a>
+			</div>
+			<div class="one wide column"></div>
+		</div>
+	</div>
+	{{computedAgain}}
+</template>

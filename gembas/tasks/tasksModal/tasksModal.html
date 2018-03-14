@@ -1,0 +1,45 @@
+<template name="tasksModal">
+
+  <div class="ui modal modalGembaSearch" id="modalAddTasks">
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <h3 class="mrg-3">{{_ "select_tasks"}}</h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 text-right">
+          <div class="ui action input text-righ modalGembaSelection">
+            <input type="text" placeholder="{{_ 'search'}}" name="searchList" id="inputModalTask" class="searchInputModal">
+            <span class="ui icon btnModalTask">
+              <i class="search icon"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content contentGemba">
+      <div class="segment contentGembaIII">
+        {{#each getTasksToSelect}}
+          <div data-id="{{_id}}">
+            <input class="checkTask" type="checkbox" value="{{_id}}">
+            {{name}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="two fluid ui buttons">
+        <div class="ui button cancel">
+          <i class="remove icon"></i>
+          {{_ "cancel"}}
+        </div>
+        <div class="ui btnsave button ok">
+          <i class="checkmark icon"></i>
+          {{_ "accept"}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

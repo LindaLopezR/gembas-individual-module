@@ -1,0 +1,197 @@
+<template name="gembas">
+
+	<!-- {{>alertGemba}} -->
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h3 class="titulo-azul">{{getTitle}}</h3>
+			</div>
+			<div class="col-md-6">
+				<a class="ayuda float-right" target="_blank" href="https://igoandsuite.zendesk.com/hc/es/articles/115001893151--C%C3%B3mo-crear-un-Gemba-Walk-">
+					<i class="fa fa-life-ring"></i>
+					{{_ "help"}}
+				</a>
+			</div>
+		</div>
+		<form class="ui tiny form" id="formNewGembaWalk">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="box-scroll">
+						<div class="box">
+							<div class="required field">
+								<label>
+									<i class="fa fa-hand-o-right"></i>
+									{{_ "name"}}
+								</label>
+								<input id="name" name="name" placeholder="{{_ 'gemba_name'}}" type="text">
+							</div>
+
+							<div class="field">
+								<label>
+									<i class="pencil icon"></i>
+									{{_ "description"}}
+								</label>
+								<textarea id="description" rows="2" name="description" placeholder="{{_ 'description'}}"></textarea>
+							</div>
+
+							<div class="required field">
+								<label>
+									<i class="info circle icon"></i>
+									{{_ "category"}}
+								</label>
+								<select class="ui fluid dropdown" id="selectCategory" name="category">
+									<option value="">{{_ "select_category"}}</option>
+									{{#each getCategories}}
+										<option value="{{_id}}">{{name}}</option>
+									{{/each}}
+								</select>
+							</div>
+
+							<div class="field">
+								<div class="ui form">
+									<div class="inline fields">
+										<div class="field">
+											<div class="ui radio checkbox">
+												<input type="radio" name="descriptionCheck" value="periodical" checked="checked">
+												<label>{{_ "periodical"}}</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui radio checkbox">
+												<input type="radio" name="descriptionCheck" value="onDemmand">
+												<label>{{_ "on_demmand"}}</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							{{#if showTimes}}
+
+								<div class="required inline field">
+									<label>{{_ "starts_on"}}
+										<i class="calendar icon"> </i>
+									</label>
+									<input type="text" id="pickerStartsOn" name="startsOn" readonly >
+								</div>
+
+								<div class="required field">
+									<label>
+										{{_ "time_to_complete"}}
+										<i class="clock outline icon"></i>
+									</label>
+								</div>
+
+								<div class="two fields">
+									<div class="field">
+										<input type="text" id="pickerTimeToComplete" name="timeToComplete" placeholder="">
+									</div>
+
+									<div class="field">
+										<select class="ui fluid dropdown" id="selectComplete" name="complete2">
+											<option value="minutes">{{_ "minutes"}}</option>
+											<option value="hours">{{_ "hours"}}</option>
+											<option value="days">{{_ "days"}}</option>
+											<option value="weeks">{{_ "weeks"}}</option>
+											<option value="months">{{_ "months"}}</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="required field">
+									<label>
+										<i class="repeat icon"></i>
+										{{_ "repeat"}}
+									</label>
+								</div>
+
+								<div class="two fields">
+									<div class="field">
+										<input type="text" id="selectRepeat1" name="repeat1" placeholder="">
+									</div>
+
+									<div class="field">
+										<select class="ui fluid dropdown" id="selectRepeat2" name="repeat2">
+											<option value="minutes">{{_ "minutes"}}</option>
+											<option value="hours">{{_ "hours"}}</option>
+											<option value="days">{{_ "days"}}</option>
+											<option value="weeks">{{_ "weeks"}}</option>
+											<option value="months">{{_ "months"}}</option>
+										</select>
+									</div>
+								</div>
+
+							{{/if}}
+
+							{{#if showEnableDisable}}
+								<div class="required field">
+									<label>
+										<i class="unhide icon"></i>
+										{{_ "enable_disable_gemba"}}
+									</label>
+								</div>
+								<div class="inline field">
+									<div class="ui toggle checkbox">
+										<input type="checkbox" id="activeGemba">
+										<label>{{_ "activate_gemba"}}</label>
+									</div>
+								</div>
+							{{/if}}
+
+						</div>
+
+						{{> alerts showLeftSide=showTimes}}
+
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					{{> locations}}
+				</div>
+
+				<div class="col-md-4" >
+					<div class="box-scroll">
+
+						{{#if showTasks}}
+							<div class="row">
+								{{> tasks}}
+							</div>
+						{{else}}
+							<div class="noTasks mrg-3">
+								<img src="/img/no-task.png" >
+								<p>{{_ "no_tasks"}}, <br>{{_ "select_a_location"}}</p>
+							</div>
+						{{/if}}
+
+						{{#if showTasks}}
+							<div class="row mrg-3">
+								{{> taskLists}}
+							</div>
+						{{else}}
+							<div class="noTasks mrg-3">
+								<img src="/img/no-task.png" >
+								<p>{{_ "no_tasks_lists"}}, <br>{{_ "select_a_location"}}</p>
+							</div>
+						{{/if}}
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<hr class="linea-azul">
+				<div class="botones">
+					{{#if showSubmit}}
+						<button class="ui button btnsave" type="submit">{{_ "save"}}</button>
+					{{/if}}
+					<button class="ui button" id="btnCancelGemba"> {{_ "cancel"}} </button>
+
+					<div class="ui error message"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</template>
