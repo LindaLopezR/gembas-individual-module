@@ -7,7 +7,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.4.4.2');
+  api.versionsFrom('1.6.1');
   api.use('blaze-html-templates@1.0.4');
   api.use('ecmascript');
   api.use('templating');
